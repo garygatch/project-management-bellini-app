@@ -30,7 +30,7 @@
       "styles": [
         {
           "property": "--bln-badge-text-color",
-          "value": "#c22e2e",
+          "value": "#f7f7f7",
           "enabled": true
         }
       ],
