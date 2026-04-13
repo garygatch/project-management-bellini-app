@@ -27,7 +27,13 @@
         "variable": "",
         "trackByIndex": false
       },
-      "styles": [],
+      "styles": [
+        {
+          "property": "--bln-badge-text-color",
+          "value": "#c22e2e",
+          "enabled": true
+        }
+      ],
       "children": [],
       "comments": "",
       "type": "core-component",
@@ -37,5 +43,6 @@
   "variables": [],
   "bindings": [],
   "modules": [],
-  "styles": []
+  "styles": [],
+  "parentDirectoryId": "jha1TAg3ewkSMO1As2-x5"
 }

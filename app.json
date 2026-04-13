@@ -18,7 +18,19 @@
       "mockedUserAccounts": []
     }
   },
-  "directories": null,
+  "directories": {
+    "assets": [],
+    "components": [
+      {
+        "id": "jha1TAg3ewkSMO1As2-x5",
+        "name": "l"
+      }
+    ],
+    "pages": [],
+    "scripts": [],
+    "services": [],
+    "stylesheets": []
+  },
   "localStylesheets": [
     {
       "path": "main.css"
