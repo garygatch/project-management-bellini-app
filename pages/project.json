@@ -62,7 +62,12 @@
       "name": "div",
       "nodeName": "div",
       "elementId": "",
-      "attributes": [],
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "V7gIvn"
+        }
+      ],
       "classList": [
         "page-header"
       ],
@@ -82,7 +87,12 @@
           "name": "div",
           "nodeName": "div",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "7bjlkx"
+            }
+          ],
           "classList": [
             "page-title"
           ],
@@ -111,7 +121,12 @@
           "name": "p",
           "nodeName": "p",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "g_3yNe"
+            }
+          ],
           "classList": [
             "project-desc"
           ],
@@ -125,7 +140,13 @@
             "trackByIndex": false,
             "variable": ""
           },
-          "styles": [],
+          "styles": [
+            {
+              "property": "color",
+              "value": "#e15656",
+              "enabled": true
+            }
+          ],
           "children": [
             {
               "name": "text",
@@ -143,7 +164,12 @@
       "name": "div",
       "nodeName": "div",
       "elementId": "",
-      "attributes": [],
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "ciqXCG"
+        }
+      ],
       "classList": [
         "content-container"
       ],
@@ -176,7 +202,12 @@
           "name": "div",
           "nodeName": "div",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "3o46iC"
+            }
+          ],
           "classList": [
             "card"
           ],
@@ -205,7 +236,12 @@
               "name": "div",
               "nodeName": "div",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "zZ89iM"
+                }
+              ],
               "classList": [
                 "task-list"
               ],
@@ -225,7 +261,12 @@
                   "name": "div",
                   "nodeName": "div",
                   "elementId": "",
-                  "attributes": [],
+                  "attributes": [
+                    {
+                      "property": "data-id",
+                      "value": "Flv1CJ"
+                    }
+                  ],
                   "classList": [
                     "task-item"
                   ],
@@ -247,7 +288,12 @@
                       "name": "div",
                       "nodeName": "div",
                       "elementId": "",
-                      "attributes": [],
+                      "attributes": [
+                        {
+                          "property": "data-id",
+                          "value": "dVh3lx"
+                        }
+                      ],
                       "classList": [
                         "task-info"
                       ],
@@ -267,7 +313,12 @@
                           "name": "div",
                           "nodeName": "div",
                           "elementId": "",
-                          "attributes": [],
+                          "attributes": [
+                            {
+                              "property": "data-id",
+                              "value": "0Vrkci"
+                            }
+                          ],
                           "classList": [
                             "task-title"
                           ],
@@ -296,7 +347,12 @@
                           "name": "div",
                           "nodeName": "div",
                           "elementId": "",
-                          "attributes": [],
+                          "attributes": [
+                            {
+                              "property": "data-id",
+                              "value": "hDQecV"
+                            }
+                          ],
                           "classList": [
                             "task-desc"
                           ],
@@ -328,7 +384,12 @@
                       "name": "div",
                       "nodeName": "div",
                       "elementId": "",
-                      "attributes": [],
+                      "attributes": [
+                        {
+                          "property": "data-id",
+                          "value": "cn4Yka"
+                        }
+                      ],
                       "classList": [
                         "flex-row-gap"
                       ],
@@ -348,7 +409,12 @@
                           "name": "div",
                           "nodeName": "div",
                           "elementId": "",
-                          "attributes": [],
+                          "attributes": [
+                            {
+                              "property": "data-id",
+                              "value": "n8sNCz"
+                            }
+                          ],
                           "classList": [
                             "task-status"
                           ],
@@ -377,7 +443,12 @@
                           "name": "button",
                           "nodeName": "button",
                           "elementId": "",
-                          "attributes": [],
+                          "attributes": [
+                            {
+                              "property": "data-id",
+                              "value": "lwYAcG"
+                            }
+                          ],
                           "classList": [
                             "delete-btn"
                           ],
@@ -421,7 +492,12 @@
           "name": "div",
           "nodeName": "div",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "koWiKc"
+            }
+          ],
           "classList": [
             "card"
           ],
@@ -450,7 +526,12 @@
               "name": "div",
               "nodeName": "div",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "Zwgt5r"
+                }
+              ],
               "classList": [],
               "conditionalClasses": [],
               "conditionalStyles": [],
@@ -488,7 +569,12 @@
               "name": "div",
               "nodeName": "div",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "bqc3Wr"
+                }
+              ],
               "classList": [
                 "add-comment-form"
               ],
@@ -512,6 +598,10 @@
                     {
                       "property": "placeholder",
                       "value": "Task Title"
+                    },
+                    {
+                      "property": "data-id",
+                      "value": "qW6EU9"
                     }
                   ],
                   "classList": [
@@ -543,6 +633,10 @@
                     {
                       "property": "placeholder",
                       "value": "Task Description"
+                    },
+                    {
+                      "property": "data-id",
+                      "value": "aBjf_4"
                     }
                   ],
                   "classList": [
@@ -570,7 +664,12 @@
                   "name": "button",
                   "nodeName": "button",
                   "elementId": "",
-                  "attributes": [],
+                  "attributes": [
+                    {
+                      "property": "data-id",
+                      "value": "aPek8L"
+                    }
+                  ],
                   "classList": [
                     "btn-primary"
                   ],

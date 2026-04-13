@@ -23,7 +23,12 @@
       "name": "div",
       "nodeName": "div",
       "elementId": "",
-      "attributes": [],
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "0MKt8d"
+        }
+      ],
       "classList": [
         "page-header"
       ],
@@ -43,7 +48,12 @@
           "name": "button",
           "nodeName": "button",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "-5bSRm"
+            }
+          ],
           "classList": [
             "btn-secondary"
           ],
@@ -75,7 +85,12 @@
           "name": "div",
           "nodeName": "div",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "ZEgpuH"
+            }
+          ],
           "classList": [
             "page-title"
           ],
@@ -107,7 +122,12 @@
       "name": "div",
       "nodeName": "div",
       "elementId": "task-nav-bar",
-      "attributes": [],
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "hkjMnH"
+        }
+      ],
       "classList": [],
       "conditionalClasses": [],
       "conditionalStyles": [],
@@ -151,7 +171,12 @@
           "name": "a",
           "nodeName": "a",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "MeBB-k"
+            }
+          ],
           "classList": [
             "nav-link"
           ],
@@ -219,7 +244,12 @@
           "name": "a",
           "nodeName": "a",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "2-F-90"
+            }
+          ],
           "classList": [
             "nav-link"
           ],
@@ -290,7 +320,12 @@
       "name": "child-pages",
       "nodeName": "child-pages",
       "elementId": "",
-      "attributes": [],
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "CQdhjo"
+        }
+      ],
       "classList": [],
       "conditionalClasses": [],
       "conditionalStyles": [],
@@ -305,6 +340,37 @@
       "styles": [],
       "children": [],
       "comments": ""
+    },
+    {
+      "name": "Badge",
+      "nodeName": "bln-badge",
+      "elementId": "",
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "PwUJAj"
+        },
+        {
+          "property": "core",
+          "value": ""
+        }
+      ],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [],
+      "comments": "",
+      "type": "core-component",
+      "expressions": []
     }
   ],
   "parentPageName": "home",

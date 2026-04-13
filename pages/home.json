@@ -39,7 +39,12 @@
       "name": "div",
       "nodeName": "div",
       "elementId": "",
-      "attributes": [],
+      "attributes": [
+        {
+          "property": "data-id",
+          "value": "W58QYG"
+        }
+      ],
       "classList": [
         "app-container"
       ],
@@ -53,13 +58,24 @@
         "variable": "",
         "trackByIndex": false
       },
-      "styles": [],
+      "styles": [
+        {
+          "property": "color",
+          "value": "#ea8b8b",
+          "enabled": true
+        }
+      ],
       "children": [
         {
           "name": "div",
           "nodeName": "div",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "eBvXCK"
+            }
+          ],
           "classList": [
             "sidebar"
           ],
@@ -79,7 +95,12 @@
               "name": "div",
               "nodeName": "div",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "nYisqu"
+                }
+              ],
               "classList": [
                 "sidebar-header"
               ],
@@ -108,7 +129,12 @@
               "name": "div",
               "nodeName": "div",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "_wYl9y"
+                }
+              ],
               "classList": [
                 "project-list"
               ],
@@ -128,7 +154,12 @@
                   "name": "div",
                   "nodeName": "div",
                   "elementId": "",
-                  "attributes": [],
+                  "attributes": [
+                    {
+                      "property": "data-id",
+                      "value": "RxyypW"
+                    }
+                  ],
                   "classList": [
                     "project-item"
                   ],
@@ -155,7 +186,12 @@
                       "name": "span",
                       "nodeName": "span",
                       "elementId": "",
-                      "attributes": [],
+                      "attributes": [
+                        {
+                          "property": "data-id",
+                          "value": "_Xc-Op"
+                        }
+                      ],
                       "classList": [],
                       "conditionalClasses": [],
                       "conditionalStyles": [],
@@ -182,7 +218,12 @@
                       "name": "button",
                       "nodeName": "button",
                       "elementId": "",
-                      "attributes": [],
+                      "attributes": [
+                        {
+                          "property": "data-id",
+                          "value": "btFcUV"
+                        }
+                      ],
                       "classList": [
                         "sidebar-delete-btn"
                       ],
@@ -220,7 +261,12 @@
               "name": "div",
               "nodeName": "div",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "tKFcln"
+                }
+              ],
               "classList": [],
               "conditionalClasses": [],
               "conditionalStyles": [],
@@ -249,7 +295,12 @@
                   "name": "button",
                   "nodeName": "button",
                   "elementId": "",
-                  "attributes": [],
+                  "attributes": [
+                    {
+                      "property": "data-id",
+                      "value": "EpYsKH"
+                    }
+                  ],
                   "classList": [
                     "btn-primary",
                     "w-100"
@@ -285,7 +336,12 @@
               "name": "div",
               "nodeName": "div",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "riGrk6"
+                }
+              ],
               "classList": [],
               "conditionalClasses": [],
               "conditionalStyles": [],
@@ -314,7 +370,12 @@
                   "name": "button",
                   "nodeName": "button",
                   "elementId": "",
-                  "attributes": [],
+                  "attributes": [
+                    {
+                      "property": "data-id",
+                      "value": "shJcQB"
+                    }
+                  ],
                   "classList": [
                     "btn-secondary",
                     "w-100"
@@ -353,7 +414,12 @@
           "name": "div",
           "nodeName": "div",
           "elementId": "",
-          "attributes": [],
+          "attributes": [
+            {
+              "property": "data-id",
+              "value": "R6W500"
+            }
+          ],
           "classList": [
             "main-content"
           ],
@@ -373,7 +439,12 @@
               "name": "child-pages",
               "nodeName": "child-pages",
               "elementId": "",
-              "attributes": [],
+              "attributes": [
+                {
+                  "property": "data-id",
+                  "value": "kXoBZ_"
+                }
+              ],
               "classList": [],
               "conditionalClasses": [],
               "conditionalStyles": [],
