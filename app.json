@@ -1,0 +1,27 @@
+{
+  "name": "project-management",
+  "type": "app",
+  "defaultPage": "home",
+  "config": {
+    "config": {
+      "parameters": [],
+      "script": ""
+    },
+    "modules": [],
+    "properties": {
+      "version": "1.0.0-SNAPSHOT"
+    },
+    "environments": [],
+    "themes": [],
+    "auth": {
+      "enabled": true,
+      "mockedUserAccounts": []
+    }
+  },
+  "directories": null,
+  "localStylesheets": [
+    {
+      "path": "main.css"
+    }
+  ]
+}

@@ -1,0 +1,401 @@
+{
+  "name": "home",
+  "type": "page",
+  "url": "/home",
+  "params": {},
+  "variables": [
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "$auth",
+      "type": "service"
+    },
+    {
+      "name": "projects",
+      "description": "Array of mock projects",
+      "type": "property",
+      "value": "(function() { var defaults = [{ id: \"api-integration-gateway\", name: \"API Integration Gateway\", description: \"Develop a centralized API gateway to manage and secure all incoming and outgoing API traffic for our microservices architecture.\" }, { id: \"q4-marketing-campaign\", name: \"Q4 Marketing Campaign\", description: \"Launch a multi-channel marketing campaign for the new product line, including social media promotion, email marketing, and content creation.\" }, { id: \"data-warehouse-migration\", name: \"Data Warehouse Migration\", description: \"Migrate the existing on-premise data warehouse to a cloud-based solution on AWS Redshift, including data validation and performance tuning.\" }, { id: \"mobile-app-refactor\", name: \"Mobile App Refactor\", description: \"Refactor the native iOS and Android apps to improve performance, update the UI/UX to the new design system, and add offline capabilities.\" }, { id: \"customer-support-portal\", name: \"Customer Support Portal\", description: \"Build a new self-service customer support portal with a comprehensive knowledge base, ticket submission system, and live chat integration.\" }, { id: \"ecommerce-platform-upgrade\", name: \"E-commerce Platform Upgrade\", description: \"Upgrade the Magento e-commerce platform to the latest version, including theme customization, extension compatibility checks, and security patching.\" }, { id: \"annual-offsite-2024\", name: \"Annual Company Offsite 2024\", description: \"Organize the annual company-wide offsite event, including venue selection, logistics, agenda planning, and vendor coordination.\" }, { id: \"gdpr-compliance-audit\", name: \"GDPR Compliance Audit\", description: \"Conduct a full audit of all data processing activities to ensure compliance with GDPR regulations, including data mapping and risk assessment.\" }, { id: \"frontend-performance-opt\", name: \"Frontend Performance Optimization\", description: \"Improve the core web application load time and responsiveness by implementing code splitting, image optimization, and caching strategies.\" }, { id: \"onboarding-process-auto\", name: \"Onboarding Process Automation\", description: \"Automate the new employee onboarding process, from HR paperwork to IT equipment provisioning and training session scheduling.\" }, { id: \"project-apollo-launch\", name: \"Project Apollo Launch\", description: \"Coordinate the highly anticipated launch of Project Apollo, ensuring all technical, marketing, and logistical aspects are flawlessly executed.\" }, { id: \"internal-dev-portal\", name: \"Internal Developer Portal\", description: \"Create a comprehensive internal developer portal to centralize documentation, tools, and resources for our engineering teams.\" }, { id: \"ai-powered-chatbot\", name: \"AI-Powered Customer Chatbot\", description: \"Develop and integrate an AI-powered chatbot into our customer support channels to provide instant assistance and escalate complex queries to human agents.\" }, { id: \"cloud-cost-optimization\", name: \"Cloud Cost Optimization Initiative\", description: \"Implement strategies and tools to optimize our cloud infrastructure spending across AWS, Azure, and Google Cloud platforms.\" }, { id: \"cybersecurity-enhancements\", name: \"Cybersecurity Enhancements Project\", description: \"Strengthen our organizational cybersecurity posture through advanced threat detection, employee training, and incident response planning.\" }, { id: \"product-roadmap-2025\", name: \"Product Roadmap 2025 Planning\", description: \"Define the strategic product roadmap for 2025, identifying key features, market opportunities, and resource allocation.\" }]; localStorage.setItem('pm_projects', JSON.stringify(defaults)); return defaults; })()"
+    },
+    {
+      "name": "deleteProject",
+      "description": "",
+      "type": "method",
+      "body": "$ctrl.projects = $ctrl.projects.filter(function(p) { return p.id !== projectId; }); localStorage.setItem('pm_projects', JSON.stringify($ctrl.projects));",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [
+        "projectId"
+      ],
+      "watch": []
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "app-container"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "sidebar"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [
+                "sidebar-header"
+              ],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "Projects",
+                  "evaluate": false
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [
+                "project-list"
+              ],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "children": [
+                {
+                  "name": "div",
+                  "nodeName": "div",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [
+                    "project-item"
+                  ],
+                  "conditionalClasses": [
+                    {
+                      "className": "active",
+                      "condition": "$ctrl.$state.includes('home.project', { projectId: project.id })"
+                    }
+                  ],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {
+                    "click": "$ctrl.$state.go('home.project', { projectId: project.id })"
+                  },
+                  "iterate": {
+                    "array": "$ctrl.projects",
+                    "variable": "project",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [
+                    {
+                      "name": "span",
+                      "nodeName": "span",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "project.name",
+                          "evaluate": true
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "button",
+                      "nodeName": "button",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [
+                        "sidebar-delete-btn"
+                      ],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {
+                        "click": "$event.stopPropagation(); $ctrl.deleteProject(project.id)"
+                      },
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "×",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": "",
+                      "formDisabled": ""
+                    }
+                  ],
+                  "comments": ""
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "padding",
+                  "value": "1rem",
+                  "enabled": true
+                },
+                {
+                  "property": "border-top",
+                  "value": "1px solid var(--primary-hover)",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "button",
+                  "nodeName": "button",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [
+                    "btn-primary",
+                    "w-100"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {
+                    "click": "$ctrl.$state.go('home.add-project')"
+                  },
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "Create New Project",
+                      "evaluate": false
+                    }
+                  ],
+                  "comments": "",
+                  "formDisabled": ""
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "padding",
+                  "value": "1rem",
+                  "enabled": true
+                },
+                {
+                  "property": "border-top",
+                  "value": "1px solid var(--primary-hover)",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "button",
+                  "nodeName": "button",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [
+                    "btn-secondary",
+                    "w-100"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {
+                    "click": "$ctrl.$auth.logout()"
+                  },
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "Logout",
+                      "evaluate": false
+                    }
+                  ],
+                  "comments": "",
+                  "formDisabled": ""
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "main-content"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "child-pages",
+              "nodeName": "child-pages",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "children": [],
+              "comments": "",
+              "type": "page-container"
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    }
+  ],
+  "authenticationRequired": true
+}

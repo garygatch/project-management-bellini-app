@@ -1,0 +1,613 @@
+{
+  "name": "project",
+  "type": "page",
+  "url": "/projects/:projectId",
+  "params": {
+    "projectId": ""
+  },
+  "variables": [
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "tasks",
+      "description": "List of tasks for the current project. Loads from localStorage or uses default tasks if none exist.",
+      "type": "property",
+      "value": "(function() {\n  var currentProjectId = $ctrl.pageParameters.projectId;\n  var localStorageKey = 'pm_tasks_' + currentProjectId;\n  var storedTasks = localStorage.getItem(localStorageKey);\n\n  if (storedTasks) {\n    return JSON.parse(storedTasks);\n  } else {\n    var defaultTasks = [\n      { id: 'task-1', title: 'Task 1: Project Kick-off and Requirement Gathering', description: 'Hold a project kick-off meeting with all stakeholders. Define project scope, objectives, and deliverables. Gather detailed requirements and document them in the project workspace.', status: 'To Do' },\n      { id: 'task-2', title: 'Task 2: UI/UX Design and Prototyping', description: 'Create wireframes and mockups for the main user flows. Develop an interactive prototype and conduct a usability testing session to gather feedback. Iterate on the designs based on feedback.', status: 'To Do' },\n      { id: 'task-3', title: 'Task 3: Backend Development and API Integration', description: 'Set up the database schema and develop the necessary API endpoints. Integrate with third-party services as required. Ensure all endpoints are documented and tested.', status: 'To Do' }\n    ];\n    localStorage.setItem(localStorageKey, JSON.stringify(defaultTasks));\n    return defaultTasks;\n  }\n})()"
+    },
+    {
+      "name": "newTaskTitle",
+      "description": "",
+      "type": "property",
+      "value": "''"
+    },
+    {
+      "name": "newTaskDesc",
+      "description": "",
+      "type": "property",
+      "value": "''"
+    },
+    {
+      "name": "addTask",
+      "description": "",
+      "type": "method",
+      "body": "if (!$ctrl.newTaskTitle) return; $ctrl.tasks.push({id: 't-' + Date.now(), title: $ctrl.newTaskTitle, description: $ctrl.newTaskDesc, status: 'To Do'}); localStorage.setItem('pm_tasks_' + $ctrl.pageParameters.projectId, JSON.stringify($ctrl.tasks)); $ctrl.newTaskTitle = ''; $ctrl.newTaskDesc = '';",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": []
+    },
+    {
+      "name": "deleteTask",
+      "description": "",
+      "type": "method",
+      "body": "$ctrl.tasks = $ctrl.tasks.filter(function(t) { return t.id !== taskId; }); localStorage.setItem('pm_tasks_' + $ctrl.pageParameters.projectId, JSON.stringify($ctrl.tasks));",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [
+        "taskId"
+      ],
+      "watch": []
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "page-header"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "trackByIndex": false,
+        "variable": ""
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "page-title"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "trackByIndex": false,
+            "variable": ""
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "'Project ' + $ctrl.pageParameters.projectId",
+              "evaluate": true
+            }
+          ],
+          "comments": ""
+        },
+        {
+          "name": "p",
+          "nodeName": "p",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "project-desc"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "trackByIndex": false,
+            "variable": ""
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "'Manage tasks and deliverables for project: ' + $ctrl.pageParameters.projectId",
+              "evaluate": true
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    },
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "content-container"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "trackByIndex": false,
+        "variable": ""
+      },
+      "styles": [
+        {
+          "property": "display",
+          "value": "flex"
+        },
+        {
+          "property": "flex-direction",
+          "value": "column"
+        },
+        {
+          "property": "align-items",
+          "value": "center"
+        }
+      ],
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "card"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "trackByIndex": false,
+            "variable": ""
+          },
+          "styles": [
+            {
+              "property": "width",
+              "value": "100%"
+            },
+            {
+              "property": "max-width",
+              "value": "900px"
+            }
+          ],
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [
+                "task-list"
+              ],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "trackByIndex": false,
+                "variable": ""
+              },
+              "styles": [],
+              "children": [
+                {
+                  "name": "div",
+                  "nodeName": "div",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [
+                    "task-item"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {
+                    "click": "$ctrl.$state.go('home.task-view', { projectId: $ctrl.pageParameters.projectId, taskId: task.id })"
+                  },
+                  "iterate": {
+                    "array": "$ctrl.tasks",
+                    "trackByIndex": false,
+                    "variable": "task"
+                  },
+                  "styles": [],
+                  "children": [
+                    {
+                      "name": "div",
+                      "nodeName": "div",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [
+                        "task-info"
+                      ],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "trackByIndex": false,
+                        "variable": ""
+                      },
+                      "styles": [],
+                      "children": [
+                        {
+                          "name": "div",
+                          "nodeName": "div",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [
+                            "task-title"
+                          ],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "trackByIndex": false,
+                            "variable": ""
+                          },
+                          "styles": [],
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "task.title",
+                              "evaluate": true
+                            }
+                          ],
+                          "comments": ""
+                        },
+                        {
+                          "name": "div",
+                          "nodeName": "div",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [
+                            "task-desc"
+                          ],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "trackByIndex": false,
+                            "variable": ""
+                          },
+                          "styles": [],
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "task.description",
+                              "evaluate": true
+                            }
+                          ],
+                          "comments": ""
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "div",
+                      "nodeName": "div",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [
+                        "flex-row-gap"
+                      ],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "trackByIndex": false,
+                        "variable": ""
+                      },
+                      "styles": [],
+                      "children": [
+                        {
+                          "name": "div",
+                          "nodeName": "div",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [
+                            "task-status"
+                          ],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "trackByIndex": false,
+                            "variable": ""
+                          },
+                          "styles": [],
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "task.status",
+                              "evaluate": true
+                            }
+                          ],
+                          "comments": ""
+                        },
+                        {
+                          "name": "button",
+                          "nodeName": "button",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [
+                            "delete-btn"
+                          ],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {
+                            "click": "$event.stopPropagation(); $ctrl.deleteTask(task.id)"
+                          },
+                          "iterate": {
+                            "array": "",
+                            "trackByIndex": false,
+                            "variable": ""
+                          },
+                          "styles": [],
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "Delete",
+                              "evaluate": false
+                            }
+                          ],
+                          "comments": "",
+                          "formDisabled": ""
+                        }
+                      ],
+                      "comments": ""
+                    }
+                  ],
+                  "comments": ""
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "card"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "trackByIndex": false,
+            "variable": ""
+          },
+          "styles": [
+            {
+              "property": "width",
+              "value": "100%"
+            },
+            {
+              "property": "max-width",
+              "value": "900px"
+            }
+          ],
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "trackByIndex": false,
+                "variable": ""
+              },
+              "styles": [
+                {
+                  "enabled": true,
+                  "property": "font-weight",
+                  "value": "bold"
+                },
+                {
+                  "enabled": true,
+                  "property": "margin-bottom",
+                  "value": "16px"
+                }
+              ],
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "Add New Task",
+                  "evaluate": false
+                }
+              ],
+              "comments": ""
+            },
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [
+                "add-comment-form"
+              ],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "trackByIndex": false,
+                "variable": ""
+              },
+              "styles": [],
+              "children": [
+                {
+                  "name": "input",
+                  "nodeName": "input",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "placeholder",
+                      "value": "Task Title"
+                    }
+                  ],
+                  "classList": [
+                    "comment-input"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "trackByIndex": false,
+                    "variable": ""
+                  },
+                  "styles": [],
+                  "children": [],
+                  "comments": "",
+                  "formDisabled": "",
+                  "formReadonly": "",
+                  "formValue": "",
+                  "bindTo": "$ctrl.newTaskTitle"
+                },
+                {
+                  "name": "input",
+                  "nodeName": "input",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "placeholder",
+                      "value": "Task Description"
+                    }
+                  ],
+                  "classList": [
+                    "comment-input"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "trackByIndex": false,
+                    "variable": ""
+                  },
+                  "styles": [],
+                  "children": [],
+                  "comments": "",
+                  "formDisabled": "",
+                  "formReadonly": "",
+                  "formValue": "",
+                  "bindTo": "$ctrl.newTaskDesc"
+                },
+                {
+                  "name": "button",
+                  "nodeName": "button",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [
+                    "btn-primary"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {
+                    "click": "$ctrl.addTask()"
+                  },
+                  "iterate": {
+                    "array": "",
+                    "trackByIndex": false,
+                    "variable": ""
+                  },
+                  "styles": [],
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "Add Task",
+                      "evaluate": false
+                    }
+                  ],
+                  "comments": "",
+                  "formDisabled": ""
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    }
+  ],
+  "parentPageName": "home",
+  "authenticationRequired": true
+}

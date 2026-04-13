@@ -1,0 +1,312 @@
+{
+  "name": "task",
+  "type": "page",
+  "url": "/projects/:projectId/tasks/:taskId",
+  "params": {
+    "projectId": "",
+    "taskId": ""
+  },
+  "variables": [
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "task",
+      "description": "Loads the specific task's data from localStorage.",
+      "type": "property",
+      "value": "(function() { var tasks = JSON.parse(localStorage.getItem('pm_tasks_' + $ctrl.pageParameters.projectId) || '[]'); return tasks.find(function(t) { return t.id === $ctrl.pageParameters.taskId; }) || {id: $ctrl.pageParameters.taskId, title: '', description: '', status: 'To Do'}; })()"
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "page-header"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "button",
+          "nodeName": "button",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "btn-secondary"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {
+            "click": "$ctrl.$state.go('home.project', { projectId: $ctrl.pageParameters.projectId })"
+          },
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "Back to Project",
+              "evaluate": false
+            }
+          ],
+          "comments": "",
+          "formDisabled": ""
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "page-title"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "$ctrl.task.title || 'Loading task...'",
+              "evaluate": true
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    },
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "task-nav-bar",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [
+        {
+          "property": "display",
+          "value": "flex",
+          "enabled": true
+        },
+        {
+          "property": "gap",
+          "value": "1rem",
+          "enabled": true
+        },
+        {
+          "property": "padding",
+          "value": "1rem",
+          "enabled": true
+        },
+        {
+          "property": "border-bottom",
+          "value": "1px solid #e0e0e0",
+          "enabled": true
+        },
+        {
+          "property": "margin-bottom",
+          "value": "1rem",
+          "enabled": true
+        }
+      ],
+      "children": [
+        {
+          "name": "a",
+          "nodeName": "a",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "nav-link"
+          ],
+          "conditionalClasses": [
+            {
+              "className": "active",
+              "condition": "$ctrl.$state.current.name === 'home.task.details'"
+            }
+          ],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [
+            {
+              "property": "padding",
+              "value": "0.5rem 1rem",
+              "enabled": true
+            },
+            {
+              "property": "text-decoration",
+              "value": "none",
+              "enabled": true
+            },
+            {
+              "property": "color",
+              "value": "#333",
+              "enabled": true
+            },
+            {
+              "property": "border-radius",
+              "value": "0.25rem",
+              "enabled": true
+            },
+            {
+              "property": "transition",
+              "value": "background-color 0.2s",
+              "enabled": true
+            }
+          ],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "Details",
+              "evaluate": false
+            }
+          ],
+          "comments": "",
+          "link": {
+            "type": "state",
+            "state": "home.task.details",
+            "parameters": {
+              "projectId": "{{$ctrl.pageParameters.projectId}}",
+              "taskId": "{{$ctrl.pageParameters.taskId}}"
+            }
+          }
+        },
+        {
+          "name": "a",
+          "nodeName": "a",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "nav-link"
+          ],
+          "conditionalClasses": [
+            {
+              "className": "active",
+              "condition": "$ctrl.$state.current.name === 'home.task.comments'"
+            }
+          ],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [
+            {
+              "property": "padding",
+              "value": "0.5rem 1rem",
+              "enabled": true
+            },
+            {
+              "property": "text-decoration",
+              "value": "none",
+              "enabled": true
+            },
+            {
+              "property": "color",
+              "value": "#333",
+              "enabled": true
+            },
+            {
+              "property": "border-radius",
+              "value": "0.25rem",
+              "enabled": true
+            },
+            {
+              "property": "transition",
+              "value": "background-color 0.2s",
+              "enabled": true
+            }
+          ],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "Comments",
+              "evaluate": false
+            }
+          ],
+          "comments": "",
+          "link": {
+            "type": "state",
+            "state": "home.task.comments",
+            "parameters": {
+              "projectId": "{{$ctrl.pageParameters.projectId}}",
+              "taskId": "{{$ctrl.pageParameters.taskId}}"
+            }
+          }
+        }
+      ],
+      "comments": ""
+    },
+    {
+      "name": "child-pages",
+      "nodeName": "child-pages",
+      "elementId": "",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [],
+      "comments": ""
+    }
+  ],
+  "parentPageName": "home",
+  "authenticationRequired": true
+}

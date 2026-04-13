@@ -1,0 +1,353 @@
+{
+  "name": "task-edit",
+  "type": "page",
+  "url": "/projects/:projectId/tasks/:taskId/edit",
+  "params": {
+    "projectId": "",
+    "taskId": ""
+  },
+  "variables": [
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "task",
+      "description": "Loads the specific task's data from localStorage.",
+      "type": "property",
+      "value": "(function() { var tasks = JSON.parse(localStorage.getItem('pm_tasks_' + $ctrl.pageParameters.projectId) || '[]'); return tasks.find(function(t) { return t.id === $ctrl.pageParameters.taskId; }) || {id: $ctrl.pageParameters.taskId, title: '', description: '', status: 'To Do'}; })()"
+    },
+    {
+      "name": "saveTask",
+      "description": "Saves the task data to localStorage and navigates back to the task details page.",
+      "type": "method",
+      "body": "var projectId = $ctrl.pageParameters.projectId;\nvar taskId = $ctrl.pageParameters.taskId;\nvar tasks = JSON.parse(localStorage.getItem('pm_tasks_' + projectId) || '[]');\nvar taskIndex = tasks.findIndex(function(t) { return t.id === taskId; });\nif (taskIndex !== -1) {\n  tasks[taskIndex] = $ctrl.task;\n} else {\n  tasks.push($ctrl.task);\n}\nlocalStorage.setItem('pm_tasks_' + projectId, JSON.stringify(tasks));\n$ctrl.$state.go('home.task-view', { projectId: projectId, taskId: $ctrl.task.id });",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": []
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "page-header"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "page-title"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "$ctrl.task.title || 'Edit Task'",
+              "evaluate": true
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    },
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "content-container"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "card"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [
+            {
+              "property": "max-width",
+              "value": "800px",
+              "enabled": true
+            },
+            {
+              "property": "width",
+              "value": "100%",
+              "enabled": true
+            },
+            {
+              "property": "margin",
+              "value": "0 auto",
+              "enabled": true
+            },
+            {
+              "property": "padding",
+              "value": "1.5rem",
+              "enabled": true
+            }
+          ],
+          "layout": {
+            "container": {
+              "type": "box",
+              "orientation": "column"
+            }
+          },
+          "children": [
+            {
+              "name": "Text Input",
+              "nodeName": "bln-text-input",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "layout": {
+                "cell": {
+                  "type": "box-item"
+                }
+              },
+              "children": [],
+              "comments": "",
+              "type": "core-component",
+              "expressions": [
+                {
+                  "expression": "'Title'",
+                  "to": "label"
+                },
+                {
+                  "expression": "$ctrl.task.title",
+                  "to": "value"
+                },
+                {
+                  "expression": "'Task Title'",
+                  "to": "placeholder"
+                }
+              ],
+              "formControl": {
+                "modelName": "value"
+              }
+            },
+            {
+              "name": "Rich Text Editor",
+              "nodeName": "bln-rich-text-editor",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "min-height",
+                  "value": "150px",
+                  "enabled": true
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item"
+                }
+              },
+              "children": [],
+              "comments": "",
+              "type": "core-component",
+              "expressions": [
+                {
+                  "expression": "'Task Description'",
+                  "to": "placeholder"
+                },
+                {
+                  "expression": "$ctrl.task.description",
+                  "to": "textValue"
+                }
+              ]
+            },
+            {
+              "name": "Dropdown",
+              "nodeName": "bln-dropdown",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [],
+              "layout": {
+                "cell": {
+                  "type": "box-item"
+                }
+              },
+              "children": [],
+              "comments": "",
+              "type": "core-component",
+              "expressions": [
+                {
+                  "expression": "'Status'",
+                  "to": "label"
+                },
+                {
+                  "expression": "$ctrl.task.status",
+                  "to": "value"
+                },
+                {
+                  "expression": "[{label: 'To Do', value: 'To Do'}, {label: 'In Progress', value: 'In Progress'}, {label: 'Done', value: 'Done'}]",
+                  "to": "values"
+                }
+              ],
+              "formControl": {
+                "modelName": "value"
+              }
+            },
+            {
+              "name": "button",
+              "nodeName": "button",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "type",
+                  "value": "button"
+                }
+              ],
+              "classList": [
+                "btn-primary"
+              ],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {
+                "click": "$ctrl.saveTask()"
+              },
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "align-self",
+                  "value": "flex-start",
+                  "enabled": true
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item"
+                }
+              },
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "Save Task",
+                  "evaluate": false
+                }
+              ],
+              "comments": "",
+              "formDisabled": ""
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    }
+  ],
+  "parentPageName": "home"
+}

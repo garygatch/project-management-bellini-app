@@ -1,0 +1,325 @@
+{
+  "name": "add-project",
+  "type": "page",
+  "url": "/projects/new",
+  "params": {},
+  "variables": [
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "newProjectName",
+      "description": "",
+      "type": "property",
+      "value": "''"
+    },
+    {
+      "name": "newProjectDesc",
+      "description": "",
+      "type": "property",
+      "value": "''"
+    },
+    {
+      "name": "saveProject",
+      "description": "",
+      "type": "method",
+      "body": "if (!$ctrl.newProjectName) return;\nvar id = $ctrl.newProjectName.toLowerCase().replace(/\\s+/g, '-') + '-' + Date.now();\nvar stored = localStorage.getItem('pm_projects');\nvar projects = stored ? JSON.parse(stored) : [];\nprojects.push({id: id, name: $ctrl.newProjectName, description: $ctrl.newProjectDesc});\nlocalStorage.setItem('pm_projects', JSON.stringify(projects));\n$ctrl.$state.go('home.project', {projectId: id}, {reload: 'home'});",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": []
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "page-header"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "page-title"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "text",
+              "nodeName": "text",
+              "textContent": "Create New Project",
+              "evaluate": false
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    },
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "content-container"
+      ],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [
+            "card"
+          ],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "display",
+                  "value": "flex",
+                  "enabled": true
+                },
+                {
+                  "property": "flex-direction",
+                  "value": "column",
+                  "enabled": true
+                },
+                {
+                  "property": "gap",
+                  "value": "1rem",
+                  "enabled": true
+                }
+              ],
+              "children": [
+                {
+                  "name": "input",
+                  "nodeName": "input",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "placeholder",
+                      "value": "Project Name"
+                    }
+                  ],
+                  "classList": [
+                    "comment-input"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [],
+                  "comments": "",
+                  "formDisabled": "",
+                  "formReadonly": "",
+                  "formValue": "",
+                  "bindTo": "$ctrl.newProjectName"
+                },
+                {
+                  "name": "input",
+                  "nodeName": "input",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "placeholder",
+                      "value": "Project Description"
+                    }
+                  ],
+                  "classList": [
+                    "comment-input"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [],
+                  "comments": "",
+                  "formDisabled": "",
+                  "formReadonly": "",
+                  "formValue": "",
+                  "bindTo": "$ctrl.newProjectDesc"
+                },
+                {
+                  "name": "div",
+                  "nodeName": "div",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [
+                    "flex-row-gap"
+                  ],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "children": [
+                    {
+                      "name": "button",
+                      "nodeName": "button",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [
+                        "btn-primary"
+                      ],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {
+                        "click": "$ctrl.saveProject()"
+                      },
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Save Project",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": "",
+                      "formDisabled": ""
+                    },
+                    {
+                      "name": "button",
+                      "nodeName": "button",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [
+                        "btn-secondary"
+                      ],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {
+                        "click": "$ctrl.$state.go('home')"
+                      },
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Cancel",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": "",
+                      "formDisabled": ""
+                    }
+                  ],
+                  "comments": ""
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    }
+  ],
+  "parentPageName": "home",
+  "authenticationRequired": true
+}
